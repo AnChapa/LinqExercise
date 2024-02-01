@@ -21,11 +21,9 @@ namespace LinqExercise
              * 
              */
             Console.WriteLine("Array of numbers:");
-            foreach (int i in numbers)
-            {
-                Console.Write($"{i} ");
-            }
+            numbers.ToList().ForEach(x => Console.Write($"{x} "));
             Console.WriteLine("\n-------------------------------");
+
             //TODO: Print the Sum of numbers
             Console.WriteLine($"The sum of the numbers:\n{numbers.Sum()}");
             Console.WriteLine("-------------------------------");
@@ -37,37 +35,25 @@ namespace LinqExercise
             //TODO: Order numbers in ascending order and print to the console
             Console.WriteLine("Ordered in ascending order:");
             var orderedNumA = from num in numbers orderby num select num;
-            foreach (int i in orderedNumA)
-            {
-                Console.Write($"{i} ");
-            }
+            orderedNumA.ToList().ForEach(x => Console.Write($"{x} "));
             Console.WriteLine("\n-------------------------------");
 
             //TODO: Order numbers in descending order and print to the console
             Console.WriteLine("Ordered in descending order:");
             var orderedNumD = from num in numbers orderby num descending select num;
-            foreach (int i in orderedNumD)
-            {
-                Console.Write($"{i} ");
-            }
+            orderedNumD.ToList().ForEach(x => Console.Write($"{x} "));
             Console.WriteLine("\n-------------------------------");
 
             //TODO: Print to the console only the numbers greater than 6
             Console.WriteLine("Numbers greater than 6:");
             var greatSix = from num in numbers where num > 6 select num;
-            foreach (int i in greatSix)
-            {
-                Console.Write($"{i} ");
-            }
+            greatSix.ToList().ForEach(x => Console.Write($"{x} "));
             Console.WriteLine("\n-------------------------------");
 
             //TODO: Order numbers in any order (ascending or desc) but only print 4 of them **foreach loop only!**
             Console.WriteLine("First 4 in ascending:");
             var fourNum = orderedNumA.Take(4);
-            foreach (int i in fourNum)
-            {
-                Console.Write($"{i} ");
-            }
+            fourNum.ToList().ForEach(x => Console.Write($"{x} "));
             Console.WriteLine("\n-------------------------------");
 
             //TODO: Change the value at index 4 to your age, then print the numbers in descending order
@@ -75,11 +61,8 @@ namespace LinqExercise
             Console.WriteLine("Descending with age added:");
             numbers.SetValue(27, 4);
             orderedNumD = from num in numbers orderby num descending select num;
-            fourNum = orderedNumD.Take(4); 
-            foreach (int i in fourNum)
-            {
-                Console.Write($"{i} ");
-            }
+            fourNum = orderedNumD.Take(4);
+            fourNum.ToList().ForEach(x => Console.Write($"{x} "));
             Console.WriteLine("\n-------------------------------");
 
             // List of employees ****Do not remove this****
